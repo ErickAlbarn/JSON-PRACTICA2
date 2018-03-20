@@ -1,0 +1,20 @@
+<html>
+<body>
+<h1>Calcular impuestos sobre vehiculos nuevos</h1>
+<p id="clasificador"></p>
+<script>
+var nl1="liminf=0.01</br> limsup=75098.87</br> tasa=.02</br>fija=0.00</br></br>"
+var nl2="liminf=75098.88</br>limsup= 90118.61 </br>tasa= .05</br>fija= 1501.96</br><br>"
+var nl3="liminf= 98118.62</br>limsup= 105138.43 <br> tasa=.10 </br>fija= 2252.97;</br>"
+var nl4="liminf=105138.44</br>limsup= 135177.89 <br>tasa=.15;</br>fija= 3754.94;</br>"
+var nl5="liminf=135177.90</br>limsup=135177.89<br> tasa=.17</br>fija=8260.86</br>"
+var text='{ "isan":"function(){precio=1237; if( 75098.87 > precio) {  return nl1;} else{ if( 90118.61 > precio) { return nl2; } else{ if( 105138.43 > precio) { return nl3; } else{ if( 135117.89 > precio ) { return nl4; } else{ if( precio > 135117.89) { return nl5; } } } } } }" }'; 
+
+var obj = JSON.parse(text);
+obj.isan = eval("(" + obj.isan + ")");
+document.getElementById("clasificador").innerHTML =  obj.isan(); 
+
+</script>
+
+</body>
+</html>
